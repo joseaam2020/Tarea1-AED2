@@ -4,7 +4,6 @@
 using namespace std;
 
 int main(){
-    Node test;
-
-    test.test();
+    Node* nodePtr = new Node;
+    delete nodePtr;
 }
