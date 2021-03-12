@@ -8,15 +8,15 @@ class Node
 {
 private:
     int value;
-    int* next;
+    Node* next;
 public:
     Node();
     void* operator new(size_t size);
     void operator delete(void* p);
     int getValue();
-    int* getNext();
+    Node* getNext();
     void setValue(int value);
-    void setNext(int* next);
+    void setNext(Node* next);
 };
 
 #endif /* Node_H_*/

@@ -1,11 +1,8 @@
-#include <iostream>
 #include "Node.h"
-
-using namespace std;
 
 Node::Node(){
     this->value = 0;
-    this->next = NULL;
+    this->next = nullptr;
 }
 
 void* Node::operator new(size_t size){
@@ -23,11 +20,11 @@ int Node::getValue(){
     return this->value;
 }
 
-int* Node::getNext(){
+Node* Node::getNext(){
     return this->next;
 }
 
-void Node::setNext(int* next){
+void Node::setNext(Node* next){
     this->next = next;
 }
 
