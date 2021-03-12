@@ -16,6 +16,7 @@ public:
     void insert(int num);
     void print();
     void deleteAll();
+    void deleteNode(int num);
 };
 
 #endif /*NodeList_H_*/

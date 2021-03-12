@@ -8,7 +8,7 @@ private:
     Node* location; 
     CollectorNode* next;
 public: 
-    CollectorNode();
+    CollectorNode(){};
     Node* getLocation(){
         return this->location;
     };

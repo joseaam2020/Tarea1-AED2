@@ -12,5 +12,9 @@ int main(){
     list.insert(2);
     list.insert(1);
     list.print();
+    list.deleteNode(1);
+    list.print();
+    list.deleteNode(3);
+    list.print();
     list.deleteAll();
 }
