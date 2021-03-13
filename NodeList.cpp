@@ -60,8 +60,12 @@ void NodeList::print(){
         cout << "[]" << endl;
     }else{
         Node temp = (*head);
-        print << "[" << head->getValue() << flush; 
+        print << "[" << head->getValue() << flush;
+        cout << "====iteration====" << endl;
+        cout << "Current Location: " << head << endl;
         while((temp.getNext() != NULL)){
+            cout << "====iteration====" << endl;
+            cout << "Current Location: " << temp.getNext() << endl;
             Node next = *temp.getNext();
             temp = next;
             print << "," << temp.getValue() << flush;
@@ -71,19 +75,3 @@ void NodeList::print(){
     }
 }
 
-void NodeList::deleteAll(){
-    if(this->isEmpty()){
-        cout << "====Deleted====" << endl;
-    }else{
-        cout << "==Starting Delete==" << endl;
-        Node* temp = head;
-        Node* nextNode;
-        nextNode = temp->getNext();
-        while(nextNode != NULL){
-            nextNode = temp->getNext();
-            delete temp;
-            temp = nextNode;
-        }
-        cout << "====Deleted====" << endl;
-    }
-}
