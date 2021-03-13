@@ -25,5 +25,4 @@ int main(){
     list.insert(7);
     list.print();
     Collector::getInstance().print();
-    //list.deleteAll();
 }

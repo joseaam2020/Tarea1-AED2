@@ -10,6 +10,11 @@ bool Collector::isEmpty(){
     return this->head == nullptr;
 }
 
+/*
+* saveSpace():
+* -Recibe un puntero a un espacio de memoria
+* -Agrega el espacio a lista de collector
+*/
 void Collector::saveSpace(void* location){
     if(Collector::instance.isEmpty()){
         Collector::instance.head = new CollectorNode;
@@ -22,6 +27,11 @@ void Collector::saveSpace(void* location){
     }
 }
 
+/*
+* getSpace():
+* Retorna un espacio de memoria de la lista collector
+* si no hay espacios, crea uno
+*/
 void* Collector::getSpace(){
     if(Collector::instance.isEmpty()){
         void* newSpace = malloc(sizeof(Node));
@@ -31,6 +41,11 @@ void* Collector::getSpace(){
     }
 }
 
+/*
+* pop():
+* Retorna el primer elemento de la lista collector
+* y lo elimina
+*/
 void* Collector::pop(){
     void* location = this->head->getLocation();
     this->head = this->head->getNext();

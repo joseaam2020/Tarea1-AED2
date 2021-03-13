@@ -8,6 +8,11 @@ bool NodeList::isEmpty(){
     return this->head == NULL;
 }
 
+/*
+* insert():
+* Recibe un numero e inserta un nodo al princio de
+* de la lista con dicho numero
+*/
 void NodeList::insert(int num){
     if(this->isEmpty()){
         Node* newNode = new Node();
@@ -21,6 +26,11 @@ void NodeList::insert(int num){
     }
 }
 
+/*
+* deleteNode():
+* Recibe un numero y elimina el nodo con ese valor 
+* de la lista
+*/
 void NodeList::deleteNode(int num){
     if(this->isEmpty()){
         cout << "Not found" << endl;
