@@ -1,4 +1,5 @@
 #include "Node.h"
+#include "Collector.h"
 
 Node::Node(){
     this->value = 0;
@@ -7,12 +8,13 @@ Node::Node(){
 
 void* Node::operator new(size_t size){
     cout << "Created a Node" << endl;
-    void* p = ::new Node;
+    void* p = ::new(Collector::getInstance().getSpace()) Node;
     return p;
 }
 
 void Node::operator delete(void* p){
     cout << "Deleted a Node" << endl;
+    Collector::getInstance().saveSpace(p);
     free(p);
 }
 

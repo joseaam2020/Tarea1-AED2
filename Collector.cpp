@@ -4,33 +4,56 @@ Collector::Collector(){
     this->head = nullptr;
 }
 
+Collector Collector::instance;
+
 bool Collector::isEmpty(){
     return this->head == nullptr;
 }
 
-void Collector::saveSpace(Node* location){
+void Collector::saveSpace(void* location){
     if(Collector::instance.isEmpty()){
         Collector::instance.head = new CollectorNode;
         Collector::instance.head->setLocation(location);
     } else{
         CollectorNode* newNode = new CollectorNode;
         newNode->setLocation(location);
-        newNode->setNext(head);
-        head = newNode;
+        newNode->setNext(Collector::instance.head);
+        Collector::instance.head = newNode;
     }
 }
 
-Node* Collector::getSpace(){
+void* Collector::getSpace(){
     if(Collector::instance.isEmpty()){
-        Node* newSpace = (Node*) malloc(sizeof(Node));
+        void* newSpace = malloc(sizeof(Node));
         return newSpace;
     } else{
         return Collector::instance.pop();
     }
 }
 
-Node* Collector::pop(){
-    Node* location = head->getLocation();
-    head = head->getNext();
+void* Collector::pop(){
+    void* location = this->head->getLocation();
+    this->head = this->head->getNext();
     return location;
+}
+
+void Collector::print(){
+    stringstream print; 
+    cout << "====Collector====" << endl;
+    if(Collector::instance.isEmpty()){
+        print << "[]" << flush;
+    } else{
+        print 
+        << "[" 
+        << Collector::instance.head->getLocation() 
+        << flush;
+        CollectorNode temp = *Collector::instance.head;
+        while((temp.getNext() != NULL)){
+            CollectorNode next = *temp.getNext();
+            temp = next;
+            print << "," << temp.getLocation() << flush;
+        }
+        print << "]" << flush;
+    } cout << print.str() << endl;
+
 }

@@ -5,17 +5,17 @@ using namespace std;
 
 class CollectorNode{
 private: 
-    Node* location; 
+    void* location; 
     CollectorNode* next;
 public: 
     CollectorNode(){};
-    Node* getLocation(){
+    void* getLocation(){
         return this->location;
     };
     CollectorNode* getNext(){
         return this->next;
     };
-    void setLocation(Node* location){
+    void setLocation(void* location){
         this->location = location;
     };
     void setNext(CollectorNode* next){

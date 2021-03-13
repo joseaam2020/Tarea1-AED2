@@ -2,6 +2,7 @@
 #define Collector_H_ 
 
 #include <iostream>
+#include <sstream>
 #include "Node.h"
 #include "CollectorNode.cpp"
 
@@ -18,12 +19,12 @@ public:
         return instance;
     };
     bool isEmpty();
-    Node* getSpace();
-    void saveSpace(Node* location);
-    Node* pop();
+    void* getSpace();
+    void saveSpace(void* location);
+    void* pop();
+    void print();
 };
 
-Collector Collector::instance;
 
 
 #endif /*Collector_H_*/
